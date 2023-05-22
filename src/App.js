@@ -9,8 +9,11 @@ function App() {
   const [newServing, setNewServing] = useState(0)
   const [oldServing, setOldServing] = useState(0)
 
+  //Below function is called save because that makes sense to the user what is actually happening is the quantity is seperated from the ingredients so it can be calulated when the convert button is pressed
   async function handleSplitClick (e) {
-    e.preventDefault()
+    e.preventDefault() // stops the page from resetting when button is clicked
+
+    //below changes being made to inputs happen in variables because statechanges are only a snap shot and doesn't update on first click
     const splitNumber = (oldList.split(/\r?\n/)).map((item) => (item.replace(/\D+$/g, ""))) 
     const splitIngredients = (oldList.split(/\r?\n/)).map((item) => (item.replace(/[\d]/g, "")))
     setNumber(splitNumber);
